@@ -21,10 +21,16 @@ const GoalScreen = () => {
 
   return (
     <View style={styles.wrapper}>
-      <View style={tw`h-full bg-white rounded-t-lg mt-5 px-10`}>
-        <Text style={tw`text-xl py-4`}>Your Goals</Text>
-        <CardComponent data={data} />
-        <ButtonComponent handlePress={showSnackbar} title="Show Snackbar" />
+      <View style={tw` mt-5 px-10 `}>
+        <View>
+          <Text style={tw`text-xl py-4`}>Your Goals</Text>
+          <View style={tw`h-80`}>
+            <CardComponent data={data} />
+          </View>
+        </View>
+        <View style={styles.buttonStyles}>
+          <ButtonComponent handlePress={showSnackbar} title="Show Snackbar" style={tw`rounded-full`} />
+        </View>
       </View>
     </View>
 
@@ -33,8 +39,16 @@ const GoalScreen = () => {
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: "#485A7C",
-    height: "100%"
+    backgroundColor: "#fff",
+    height: "100%",
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+
+  },
+  buttonStyles: {
+    // alignSelf: 'flex-end',
+    // position: 'absolute',
+    // bottom: 0,
   }
 });
 

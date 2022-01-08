@@ -11,7 +11,7 @@ import tw from 'tailwind-react-native-classnames';
   ButtonComponent accepts two props:
   onPress function handler & title displayed on the button
  */
-const ButtonComponent = ({ handlePress, title }) => {
+const ButtonComponent = ({ handlePress, title, rest }) => {
 
   return (
     <Button
@@ -23,6 +23,7 @@ const ButtonComponent = ({ handlePress, title }) => {
       }}
       titleStyle={tw`font-light`}
       onPress={handlePress}
+      {...rest}
     />
   );
 };
