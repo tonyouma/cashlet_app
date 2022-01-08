@@ -1,5 +1,6 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 // import { style as tw } from 'tailwind-react-native-classnames';
 
@@ -7,7 +8,7 @@ import HomeScreen from './screens/HomeScreen';
 
 const App = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaProvider>
       {/* <StatusBar
         // animated={true}
         backgroundColor="#7F99C7"
@@ -15,7 +16,7 @@ const App = () => {
         // showHideTransition={statusBarTransition} hidden={hidden}
          /> */}
       <HomeScreen />
-    </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
