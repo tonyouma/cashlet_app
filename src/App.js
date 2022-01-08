@@ -3,7 +3,7 @@ import { SafeAreaView, StyleSheet } from 'react-native';
 
 // import { style as tw } from 'tailwind-react-native-classnames';
 
-import HomeScreen from './src/screens/HomeScreen';
+import HomeScreen from './screens/HomeScreen';
 
 const App = () => {
   return (
