@@ -24,30 +24,33 @@ const CardComponent = ({ data }) => {
         console.log("Button Clicked")
     }
 
+    const handleNavigation = (id) => {
+        navigation.navigate('GoalDetails', { id });
+    }
+
     return (
         <FlatList
             data={data}
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
+                <View style={styles.cardWrapper}>
+                    <View style={tw.style('w-full rounded-sm flex flex-row justify-between px-4 py-1 items-center')}>
+                        <View>
+                            <Text style={tw`text-lg`}>Goal {item.id}</Text>
+                            <Text style={tw`text-base text-gray-400`}>KSH {formatCurrency(item.amount)}</Text>
+                        </View>
+                        <View style={tw` flex flex-row items-center`}>
+                            <ButtonComponent handlePress={handleGoalFinish} title="Finish Goal" />
 
-                <TouchableOpacity
-                    onPress={() => navigation.navigate("GoalDetails", { id: item.id })}
-                >
-                    <View>
-                        <View style={tw.style('w-full rounded-sm flex flex-row justify-between pb-6')}>
-                            <View>
-                                <Text style={tw`text-xl`}>Goal {item.id}</Text>
-                                <Text style={tw`text-base text-gray-400`}>KSH {formatCurrency(item.amount)}</Text>
-                            </View>
-                            <View style={tw` flex flex-row items-center`}>
-                                <ButtonComponent handlePress={handleGoalFinish} title="Finish Goal" />
-
-                                <Divider orientation="vertical" style={tw`mx-4`} color="#000" />
-                                <Icon name='arrowright' type='antdesign' color="black" />
-                            </View>
+                            <Divider orientation="vertical" style={tw`mx-4`} color="#000" />
+                            <TouchableOpacity
+                                onPress={handleNavigation}
+                            >
+                                <Icon name='chevron-right' type='feather' color="black" size={28} />
+                            </TouchableOpacity>
                         </View>
                     </View>
-                </TouchableOpacity>
+                </View>
 
             )}
         />
@@ -56,8 +59,11 @@ const CardComponent = ({ data }) => {
 
 const styles = StyleSheet.create({
     cardWrapper: {
-        backgroundColor: "#485A7C",
-        height: "100%"
+        borderColor: '#F3F4F8',
+        borderWidth: 1,
+        borderRadius: 14,
+        marginBottom: 15,
+        boxShadow: '0 2px 6px rgba(0, 0, 0, 0.07)'
     }
 });
 

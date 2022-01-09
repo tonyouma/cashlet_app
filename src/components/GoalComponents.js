@@ -2,10 +2,14 @@ import React from 'react';
 import {
   StyleSheet,
   View,
-  Text
+  Text,
+  SafeAreaView,
+  TouchableOpacity
 } from 'react-native';
 
 import tw from 'tailwind-react-native-classnames';
+
+import { useToast } from "react-native-toast-notifications";
 
 import ButtonComponent from './ButtonComponent'
 import CardComponent from './CardComponent'
@@ -13,26 +17,42 @@ import CardComponent from './CardComponent'
 import { data } from '../data'
 
 const GoalScreen = () => {
+  const [open, setOpen] = React.useState(false);
+
+  const toast = useToast();
 
   const showSnackbar = () => {
     console.log("Button Clicked")
   }
 
+  // show tooltip on button click
+
 
   return (
-    <View style={styles.wrapper}>
-      <View style={tw` mt-5 px-10 `}>
-        <View>
-          <Text style={tw`text-xl py-4`}>Your Goals</Text>
+    <SafeAreaView style={styles.wrapper}>
+      <View style={tw` mt-5`}>
+        <Text style={tw`text-xl py-4 px-10`}>Your Goals</Text>
+
+        <View style={tw` px-5`}>
           <View style={tw`h-80`}>
             <CardComponent data={data} />
           </View>
+          <TouchableOpacity>
+            <ButtonComponent handlePress={() =>
+              toast.show("This is a customized toast with close button!", {
+                type: "with_close_button",
+                animationDuration: 100,
+              })
+            } title="Show Snackbar" style={tw`rounded-full`} />
+          </TouchableOpacity>
+
         </View>
+
         <View style={styles.buttonStyles}>
-          <ButtonComponent handlePress={showSnackbar} title="Show Snackbar" style={tw`rounded-full`} />
+
         </View>
       </View>
-    </View>
+    </SafeAreaView>
 
   );
 };
@@ -43,12 +63,15 @@ const styles = StyleSheet.create({
     height: "100%",
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
+    display: 'flex',
+    justifyContent: 'space-between',
 
   },
   buttonStyles: {
     // alignSelf: 'flex-end',
     // position: 'absolute',
     // bottom: 0,
+    // flex: 1
   }
 });
 

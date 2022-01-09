@@ -4,7 +4,7 @@ import { View, Text } from 'react-native'
 export default function GoalDetails() {
     return (
         <View>
-            <Text></Text>
+            <Text>Hello World</Text>
         </View>
     )
 }
