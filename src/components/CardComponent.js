@@ -6,18 +6,19 @@ import { View, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 
 import { Text, Icon, Divider } from 'react-native-elements';
 
+import { useNavigation } from '@react-navigation/native';
+
 
 // import Tailwind Css
 import tw from 'tailwind-react-native-classnames';
 
-import ButtonComponent from './ButtonComponent'
+import ButtonComponent from './ButtonComponent';
 
+import { formatCurrency } from '../utils';
 
-/**
-  ButtonComponent accepts two props:
-  onPress function handler & title displayed on the button
- */
 const CardComponent = ({ data }) => {
+
+    const navigation = useNavigation();
 
     const handleGoalFinish = () => {
         console.log("Button Clicked")
@@ -29,12 +30,14 @@ const CardComponent = ({ data }) => {
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
 
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate("GoalDetails", { id: item.id })}
+                >
                     <View>
                         <View style={tw.style('w-full rounded-sm flex flex-row justify-between pb-6')}>
                             <View>
                                 <Text style={tw`text-xl`}>Goal {item.id}</Text>
-                                <Text style={tw`text-base text-gray-400`}>KSH {item.amount}</Text>
+                                <Text style={tw`text-base text-gray-400`}>KSH {formatCurrency(item.amount)}</Text>
                             </View>
                             <View style={tw` flex flex-row items-center`}>
                                 <ButtonComponent handlePress={handleGoalFinish} title="Finish Goal" />
