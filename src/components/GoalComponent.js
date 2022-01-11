@@ -29,7 +29,7 @@ const GoalComponent = () => {
           </View>
           <ButtonComponent handlePress={() => {
             toast.show("This is an in app notification to show to the user when they perfom an action. Clicking should change the text", {
-              type: "with_close_button",
+              type: "popup",
               animationDuration: 100,
             })
           }

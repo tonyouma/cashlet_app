@@ -11,36 +11,20 @@ const Snackbar = ({ children }) => {
     return (
         <ToastProvider
             placement="top"
-
             offset={10}
             renderType={{
-                with_close_button: (toast) => (
+                popup: (toast) => (
                     <View
-                        style={[tw`items-center`, {
-                            maxWidth: "85%",
-                            paddingVertical: 10,
+                        style={[tw`items-center justify-between mx-10 rounded-xl flex-row my-2 py-6 px-4`, {
                             backgroundColor: "#e91780",
-                            marginVertical: 4,
-                            borderRadius: 8,
-                            justifyContent: "space-between",
-                            paddingHorizontal: 16,
-                            flexDirection: "row",
-                            color: '#fff'
                         }]}
                     >
-                        <Text style={[tw`text-white`, { marginRight: 16 }]}>{toast.message}</Text>
+                        <Text style={tw`text-white mr-8`}>{toast.message}</Text>
                         <TouchableOpacity
                             onPress={() => toast.onHide()}
-                            style={{
-                                marginLeft: "auto",
-
-                                justifyContent: "center",
-                                alignItems: "center",
-                            }}
+                            style={tw` ml-auto `}
                         >
-                            <Text style={{ color: "#fff", fontWeight: "500", marginBottom: 2.5 }}>
-                                <Icon type="feather" size={28} name="x" />
-                            </Text>
+                            <Icon type="feather" size={28} name="x" color="#fff" />
                         </TouchableOpacity>
                     </View>
                 ),
