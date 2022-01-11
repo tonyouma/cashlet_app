@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   StyleSheet,
   View,
   Text,
-  SafeAreaView,
-  TouchableOpacity
+  SafeAreaView
 } from 'react-native';
 
 import tw from 'tailwind-react-native-classnames';
@@ -16,36 +15,25 @@ import CardComponent from './CardComponent'
 
 import { data } from '../data'
 
-const GoalScreen = () => {
-  const [open, setOpen] = React.useState(false);
-
+const GoalComponent = () => {
   const toast = useToast();
-
-  const showSnackbar = () => {
-    console.log("Button Clicked")
-  }
-
-  // show tooltip on button click
-
 
   return (
     <SafeAreaView style={styles.wrapper}>
       <View style={tw` mt-5`}>
         <Text style={tw`text-xl py-4 px-10`}>Your Goals</Text>
 
-        <View style={tw` px-5`}>
-          <View style={tw`h-80`}>
+        <View style={tw`flex px-5`}>
+          <View style={tw`h-96`}>
             <CardComponent data={data} />
           </View>
-          <TouchableOpacity>
-            <ButtonComponent handlePress={() =>
-              toast.show("This is a customized toast with close button!", {
-                type: "with_close_button",
-                animationDuration: 100,
-              })
-            } title="Show Snackbar" style={tw`rounded-full`} />
-          </TouchableOpacity>
-
+          <ButtonComponent handlePress={() => {
+            toast.show("This is an in app notification to show to the user when they perfom an action. Clicking should change the text", {
+              type: "with_close_button",
+              animationDuration: 100,
+            })
+          }
+          } title="Show Snackbar" classprops={tw`rounded-full py-3`} />
         </View>
 
         <View style={styles.buttonStyles}>
@@ -63,8 +51,8 @@ const styles = StyleSheet.create({
     height: "100%",
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
-    display: 'flex',
-    justifyContent: 'space-between',
+    // display: 'flex',
+    // justifyContent: 'space-between',
 
   },
   buttonStyles: {
@@ -75,4 +63,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default GoalScreen;
+export default GoalComponent;

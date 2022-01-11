@@ -1,10 +1,10 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 
 import tw from 'tailwind-react-native-classnames';
 
-// import utilities
 import { getInitials, getGreeting, formatCurrency } from '../utils';
+
 const AccountInfo = ({ user }) => {
 
     return (
@@ -23,4 +23,3 @@ const AccountInfo = ({ user }) => {
 
 export default AccountInfo
 
-const styles = StyleSheet.create({})

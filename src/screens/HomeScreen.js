@@ -5,10 +5,9 @@ import {
   View,
 } from 'react-native';
 
-import tw from 'tailwind-react-native-classnames';
 import AccountInfo from '../components/AccountInfo';
 
-import GoalComponent from '../components/GoalComponents'
+import GoalComponent from '../components/GoalComponent'
 
 
 const user = {
@@ -21,11 +20,9 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView style={styles.main}>
-      <View style={tw`flex`}>
-
+      <View>
         <AccountInfo user={user} />
         <GoalComponent />
-
       </View>
     </SafeAreaView>
   );

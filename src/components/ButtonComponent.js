@@ -11,12 +11,12 @@ import tw from 'tailwind-react-native-classnames';
   ButtonComponent accepts two props:
   onPress function handler & title displayed on the button
  */
-const ButtonComponent = ({ handlePress, title, rest }) => {
+const ButtonComponent = ({ handlePress, title, rest, classprops }) => {
 
   return (
     <Button
       title={title}
-      buttonStyle={tw`rounded-lg px-3 bg-green-300`}
+      buttonStyle={[tw`rounded-lg px-3 bg-green-300`, classprops]}
       containerStyle={{
         // marginHorizontal: 50,
         marginVertical: 10,

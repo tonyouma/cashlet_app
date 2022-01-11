@@ -44,7 +44,7 @@ const CardComponent = ({ data }) => {
 
                             <Divider orientation="vertical" style={tw`mx-4`} color="#000" />
                             <TouchableOpacity
-                                onPress={handleNavigation}
+                                onPress={() => handleNavigation(item.id)}
                             >
                                 <Icon name='chevron-right' type='feather' color="black" size={28} />
                             </TouchableOpacity>
@@ -63,7 +63,13 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 14,
         marginBottom: 15,
-        boxShadow: '0 2px 6px rgba(0, 0, 0, 0.07)'
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
     }
 });
 

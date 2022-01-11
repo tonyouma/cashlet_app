@@ -1,10 +1,19 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { StyleSheet, Text, SafeAreaView, View } from 'react-native'
+import tw from 'tailwind-react-native-classnames';
 
-export default function GoalDetails() {
+
+const GoalDetails = () => {
     return (
-        <View>
-            <Text>Hello World</Text>
-        </View>
+        <SafeAreaView style={[tw`px-10 py-20`, {}]}>
+            <View>
+                <Text style={tw`text-2xl font-bold`}>Goal Details</Text>
+            </View>
+
+        </SafeAreaView>
     )
 }
+
+export default GoalDetails
+
+const styles = StyleSheet.create({})
