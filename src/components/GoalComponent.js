@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   StyleSheet,
   View,
@@ -16,51 +16,53 @@ import CardComponent from './CardComponent'
 import { data } from '../data'
 
 const GoalComponent = () => {
+
   const toast = useToast();
+
+  let message = 'This is an in app notification to show to the user when they perfom an action. Clicking should change the text';
 
   return (
     <SafeAreaView style={styles.wrapper}>
-      <View style={tw` mt-5`}>
+      <View style={tw` mt-5 h-full`}>
         <Text style={tw`text-xl py-4 px-10`}>Your Goals</Text>
 
-        <View style={tw`flex px-5`}>
-          <View style={tw`h-96`}>
+        <View style={tw` px-5`}>
+          <View style={tw``}>
             <CardComponent data={data} />
           </View>
-          <ButtonComponent handlePress={() => {
-            toast.show("This is an in app notification to show to the user when they perfom an action. Clicking should change the text", {
-              type: "popup",
-              animationDuration: 100,
-            })
-          }
-          } title="Show Snackbar" classprops={tw`rounded-full py-3`} />
+
         </View>
+        <View style={{ flex: 1 }}>
+          <View style={[tw`absolute bottom-24 w-full`]}>
+            <ButtonComponent handlePress={() => {
+              let id = toast.show(message = `${message}`, {
+                type: "popup",
+                animationDuration: 400,
+                duration: 10000,
+                onPress: () => {
+                  if (id) {
+                    toast.update(id, "User clicked snackbar", {
+                      type: "popup",
+                    });
+                  }
+                }
 
-        <View style={styles.buttonStyles}>
-
+              })
+            }
+            } title="Show Snackbar" classprops={tw`rounded-full py-3 mx-6 `} />
+          </View>
         </View>
       </View>
     </SafeAreaView>
-
   );
 };
 
 const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: "#fff",
-    height: "100%",
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
-    // display: 'flex',
-    // justifyContent: 'space-between',
-
   },
-  buttonStyles: {
-    // alignSelf: 'flex-end',
-    // position: 'absolute',
-    // bottom: 0,
-    // flex: 1
-  }
 });
 
 export default GoalComponent;

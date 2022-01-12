@@ -7,7 +7,7 @@ const GoalDetails = () => {
     return (
         <SafeAreaView style={[tw`px-10 py-20`, {}]}>
             <View>
-                <Text style={tw`text-2xl font-bold`}>Goal Details</Text>
+                <Text style={tw`text-2xl font-bold text-black`}>Goal Details</Text>
             </View>
 
         </SafeAreaView>

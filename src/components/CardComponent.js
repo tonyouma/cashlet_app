@@ -31,9 +31,10 @@ const CardComponent = ({ data }) => {
     return (
         <FlatList
             data={data}
+            initialNumToRender={2}
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
-                <View style={styles.cardWrapper}>
+                <View style={styles.cardWrapper} >
                     <View style={tw.style('w-full rounded-sm flex flex-row justify-between px-4 py-1 items-center')}>
                         <View>
                             <Text style={tw`text-lg`}>Goal {item.id}</Text>

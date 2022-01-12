@@ -18,7 +18,6 @@ const ButtonComponent = ({ handlePress, title, rest, classprops }) => {
       title={title}
       buttonStyle={[tw`rounded-lg px-3 bg-green-300`, classprops]}
       containerStyle={{
-        // marginHorizontal: 50,
         marginVertical: 10,
       }}
       titleStyle={tw`font-light`}

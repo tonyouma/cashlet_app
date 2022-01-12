@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { Text, View, TouchableOpacity } from 'react-native'
 
 import { ToastProvider } from "react-native-toast-notifications";
 
@@ -8,6 +8,7 @@ import { Icon } from 'react-native-elements';
 import tw from 'tailwind-react-native-classnames';
 
 const Snackbar = ({ children }) => {
+
     return (
         <ToastProvider
             placement="top"
@@ -15,7 +16,7 @@ const Snackbar = ({ children }) => {
             renderType={{
                 popup: (toast) => (
                     <View
-                        style={[tw`items-center justify-between mx-6 rounded-xl flex-row my-2 py-6 px-4`, {
+                        style={[tw`items-center justify-between  mx-4 rounded-xl flex-row my-2 py-6 px-4`, {
                             backgroundColor: "#e91780",
                         }]}
                     >
