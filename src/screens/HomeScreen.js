@@ -5,6 +5,8 @@ import {
   View,
 } from 'react-native';
 
+import tw from 'tailwind-react-native-classnames';
+
 import AccountInfo from '../components/AccountInfo';
 
 import GoalComponent from '../components/GoalComponent'
@@ -21,8 +23,11 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.main}>
       <View>
-        <AccountInfo user={user} />
-        <GoalComponent />
+        <View style={tw`h-1/3`}><AccountInfo user={user} /></View>
+        <View style={tw`h-2/3`}><GoalComponent /></View>
+
+
+
       </View>
     </SafeAreaView>
   );
@@ -31,7 +36,7 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   main: {
     backgroundColor: "#485A7C",
-    height: "100%"
+    // height: "100%"
   }
 });
 
