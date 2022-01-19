@@ -34,9 +34,9 @@ const GoalComponent = () => {
 
   const animateIn = () => {
     Animated.timing(popRef, {
-      toValue: windowHeight * 0.60 * -1,
+      toValue: windowHeight * 0.55 * -1,
       duration: 700,
-      useNativeDriver: true,
+      useNativeDriver: Platform.OS !== "web",
     }).start(animateOut());
   };
 
@@ -45,7 +45,7 @@ const GoalComponent = () => {
       Animated.timing(popRef, {
         toValue: windowHeight * -1,
         duration: 800,
-        useNativeDriver: true,
+        useNativeDriver: Platform.OS !== "web",
       }).start();
     }, 10000);
   };
@@ -53,8 +53,8 @@ const GoalComponent = () => {
   const closeSnackbar = () => {
     Animated.timing(popRef, {
       toValue: windowHeight * -1,
-      duration: 300,
-      useNativeDriver: true,
+      duration: 450,
+      useNativeDriver: Platform.OS !== "web",
     }).start();
   };
 
