@@ -35,7 +35,7 @@ const CardComponent = ({ data }) => {
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
                 <View style={styles.cardWrapper} >
-                    <View style={tw.style('w-full rounded-sm flex flex-row justify-between px-4 py-1 items-center')}>
+                    <View style={tw.style('w-full rounded-sm flex flex-row justify-between px-4 items-center')}>
                         <View>
                             <Text style={tw`text-lg`}>Goal {item.id}</Text>
                             <Text style={tw`text-base text-gray-400`}>KSH {formatCurrency(item.amount)}</Text>

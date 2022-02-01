@@ -25,9 +25,6 @@ const HomeScreen = () => {
       <View>
         <View style={tw`h-1/3`}><AccountInfo user={user} /></View>
         <View style={tw`h-2/3`}><GoalComponent /></View>
-
-
-
       </View>
     </SafeAreaView>
   );
@@ -36,7 +33,6 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   main: {
     backgroundColor: "#485A7C",
-    // height: "100%"
   }
 });
 
